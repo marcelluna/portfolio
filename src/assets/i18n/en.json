@@ -1,7 +1,7 @@
 {
   "header.item1": "About Me",
   "header.item2": "Education",
-  "header.iem3": "Experience",
+  "header.item3": "Experience",
   "header.item4": "Proficiency",
   "header.item5": "Contact",
   "header.item6": "Contact",
@@ -251,6 +251,13 @@
   "label.proficiency.portuguese": "Portuguese (Native) ",
   "label.proficiency.english": "English",
   "label.proficiency.french": "French",
-  "label.proficiency.dutch": "Dutch"
+  "label.proficiency.dutch": "Dutch",
+
+  "label.email": "Enter your e-mail",
+  "label.name": "Enter your name",
+  "label.message": "Enter your message",
+
+  "label.success" : "Your message was sent with success. I'll contact you as soon as I read it.",
+  "label.failed" : "Unfortunately, we had a problem sending your message. Please try again. If the error persists, please let me know directly by email (marcel@marcelluna.com)"
 
 }

@@ -13,10 +13,33 @@
         {{ 'contact.content' | translate }}
       </p>
       <div class="mt-5">
-        <a href="mailto:marcel@marcelluna.com" target="_blank" class="main-btn" data-aos="fade-up" data-aos-duration="1000">
-          {{ 'contact.btn' | translate }}
-        </a>
+        @if (isMessageSent) {
+          <p class="success" data-aos="fade-up" data-aos-duration="1000">
+            {{ 'label.success' | translate }}
+          </p>
+        }
+        @if (isMessageFailed) {
+          <p class="failed" data-aos="fade-up" data-aos-duration="1000">
+            {{ 'label.failed' | translate }}
+          </p>
+        }
+
+        <form [formGroup]="sendEmailForm" (ngSubmit)="sendEmail()">
+          <div class="form-group input-settings">
+            <input type="text" class="form-control text-success" id="name" formControlName="name" placeholder="{{ 'label.name' | translate }}">
+          </div>
+          <div class="form-group input-settings">
+            <input type="text" class="form-control text-success" id="email" formControlName="email" placeholder="{{ 'label.email' | translate }}">
+          </div>
+          <div class="form-group input-settings">
+            <textarea type="text" class="form-control text-success" id="text" formControlName="message" placeholder="{{ 'label.message' | translate }}"></textarea>
+          </div>
+
+          <button type="submit" [disabled]="sendEmailForm.invalid" class="main-btn" data-aos="fade-up" data-aos-duration="1000">{{ 'contact.btn' | translate }}</button>
+        </form>
+
       </div>
     </div>
+
   </div>
 </section>
