@@ -1,29 +1,26 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { TranslatePipe } from '@ngx-translate/core';
 import { ApiService } from '../../../services/api.service';
 
 @Component({
-    selector: 'app-contact',
-    templateUrl: './contact.component.html',
-    styleUrls: ['./contact.component.scss'],
-    standalone: false
+  selector: 'app-contact',
+  templateUrl: './contact.component.html',
+  styleUrls: ['./contact.component.scss'],
+  imports: [ReactiveFormsModule, TranslatePipe],
 })
 export class ContactComponent {
+  private readonly apiService = inject(ApiService);
+  private readonly formBuilder = inject(FormBuilder);
+
   isMessageSent = false;
   isMessageFailed = false;
 
-  readonly sendEmailForm: FormGroup;
-
-  constructor(
-    private apiService: ApiService,
-    private formBuilder: FormBuilder,
-  ) {
-    this.sendEmailForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      message: ['', Validators.required],
-    });
-  }
+  readonly sendEmailForm: FormGroup = this.formBuilder.group({
+    name: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    message: ['', Validators.required],
+  });
 
   sendEmail(): void {
     this.isMessageSent = false;

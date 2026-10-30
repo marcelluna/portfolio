@@ -1,7 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TranslateModule } from '@ngx-translate/core';
 import { ExperienceComponent } from './experience.component';
-import { HomeModule } from '../home.module';
 import { commonTestProviders } from '../../../../testing/test-providers';
 
 describe('ExperienceComponent', () => {
@@ -10,7 +8,7 @@ describe('ExperienceComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HomeModule, TranslateModule.forRoot()],
+      imports: [ExperienceComponent],
       providers: [commonTestProviders()],
     }).compileComponents();
 
@@ -23,7 +21,7 @@ describe('ExperienceComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should load the experience list from the data service', () => {
-    expect(component.experienceList.length).toBeGreaterThan(0);
+  it('should expose the experience list from the portfolio store', () => {
+    expect(component.experienceList().length).toBeGreaterThan(0);
   });
 });

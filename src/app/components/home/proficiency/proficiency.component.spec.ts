@@ -1,7 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TranslateModule } from '@ngx-translate/core';
 import { ProficiencyComponent } from './proficiency.component';
-import { HomeModule } from '../home.module';
 import { commonTestProviders } from '../../../../testing/test-providers';
 
 describe('ProficiencyComponent', () => {
@@ -10,7 +8,7 @@ describe('ProficiencyComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HomeModule, TranslateModule.forRoot()],
+      imports: [ProficiencyComponent],
       providers: [commonTestProviders()],
     }).compileComponents();
 

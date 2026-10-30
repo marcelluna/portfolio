@@ -1,7 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TranslateModule } from '@ngx-translate/core';
 import { ContactComponent } from './contact.component';
-import { HomeModule } from '../home.module';
 import { commonTestProviders } from '../../../../testing/test-providers';
 
 describe('ContactComponent', () => {
@@ -10,7 +8,7 @@ describe('ContactComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HomeModule, TranslateModule.forRoot()],
+      imports: [ContactComponent],
       providers: [commonTestProviders()],
     }).compileComponents();
 

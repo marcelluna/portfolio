@@ -1,0 +1,44 @@
+@use "./../../../../variables.scss";
+
+.admin-dashboard {
+  min-height: 100vh;
+  background: variables.$Navy;
+  color: variables.$LightSlate;
+}
+
+.admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  background: variables.$LightNavy;
+  border-bottom: 1px solid variables.$LightestNavy;
+}
+
+.admin-title {
+  font-size: 1.25rem;
+  color: variables.$LightestSlate;
+  margin: 0;
+}
+
+.logout-btn {
+  background: transparent;
+  border: 1px solid variables.$Green;
+  color: variables.$Green;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: variables.$GreenOpacity;
+  }
+}
+
+.admin-content {
+  padding: 2rem;
+}
+
+.admin-placeholder {
+  color: variables.$Slate;
+}

@@ -1,7 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TranslateModule } from '@ngx-translate/core';
 import { AboutComponent } from './about.component';
-import { HomeModule } from '../home.module';
 import { commonTestProviders } from '../../../../testing/test-providers';
 
 describe('AboutComponent', () => {
@@ -10,7 +8,7 @@ describe('AboutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HomeModule, TranslateModule.forRoot()],
+      imports: [AboutComponent],
       providers: [commonTestProviders()],
     }).compileComponents();
 
@@ -23,7 +21,7 @@ describe('AboutComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should load the descriptions from the data service', () => {
-    expect(component.descriptions.length).toBeGreaterThan(0);
+  it('should expose the descriptions from the portfolio store', () => {
+    expect(component.descriptions().length).toBeGreaterThan(0);
   });
 });

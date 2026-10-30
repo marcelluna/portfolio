@@ -1,23 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import {DataService} from '../../../services/data/data.service';
-import {AboutMe} from '../../../model/about-me.model';
+import { Component, inject } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
+import { PortfolioStore } from '../../../store/portfolio.store';
 
 @Component({
-    selector: 'app-about',
-    templateUrl: './about.component.html',
-    styleUrls: ['./about.component.scss'],
-    standalone: false
+  selector: 'app-about',
+  templateUrl: './about.component.html',
+  styleUrls: ['./about.component.scss'],
+  imports: [TranslatePipe],
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent {
+  private readonly portfolioStore = inject(PortfolioStore);
 
-  descriptions: AboutMe[] = [];
-
-  constructor(
-    private dataService: DataService
-  ) { }
-
-  ngOnInit(): void {
-    this.descriptions = this.dataService.aboutMe;
-  }
-
+  readonly descriptions = this.portfolioStore.aboutMe;
 }

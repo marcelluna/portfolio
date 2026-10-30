@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  apiUrl: './email'
+  // Endpoint for the public contact form.
+  apiUrl: './email',
+  // Base URL of the portfolio-api (NestJS) backend. Overridden in prod.
+  adminApiUrl: 'http://localhost:3000',
 };
 
 /*

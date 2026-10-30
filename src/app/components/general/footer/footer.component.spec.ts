@@ -1,7 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TranslateModule } from '@ngx-translate/core';
 import { FooterComponent } from './footer.component';
-import { GeneralModule } from '../general.module';
 import { commonTestProviders } from '../../../../testing/test-providers';
 
 describe('FooterComponent', () => {
@@ -10,7 +8,7 @@ describe('FooterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GeneralModule, TranslateModule.forRoot()],
+      imports: [FooterComponent],
       providers: [commonTestProviders()],
     }).compileComponents();
 

@@ -1,7 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TranslateModule } from '@ngx-translate/core';
 import { BannerComponent } from './banner.component';
-import { HomeModule } from '../home.module';
 import { commonTestProviders } from '../../../../testing/test-providers';
 
 describe('BannerComponent', () => {
@@ -10,7 +8,7 @@ describe('BannerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HomeModule, TranslateModule.forRoot()],
+      imports: [BannerComponent],
       providers: [commonTestProviders()],
     }).compileComponents();
 

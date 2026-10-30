@@ -1,7 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TranslateModule } from '@ngx-translate/core';
 import { EducationComponent } from './education.component';
-import { HomeModule } from '../home.module';
 import { commonTestProviders } from '../../../../testing/test-providers';
 
 describe('EducationComponent', () => {
@@ -10,7 +8,7 @@ describe('EducationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HomeModule, TranslateModule.forRoot()],
+      imports: [EducationComponent],
       providers: [commonTestProviders()],
     }).compileComponents();
 
@@ -23,7 +21,7 @@ describe('EducationComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should load the educations from the data service', () => {
-    expect(component.educations.length).toBeGreaterThan(0);
+  it('should expose the educations from the portfolio store', () => {
+    expect(component.educations().length).toBeGreaterThan(0);
   });
 });

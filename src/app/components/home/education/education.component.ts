@@ -1,22 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import {DataService} from '../../../services/data/data.service';
-import {Education} from '../../../model/education.model';
+import { Component, inject } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
+import { PortfolioStore } from '../../../store/portfolio.store';
 
 @Component({
-    selector: 'app-education',
-    templateUrl: './education.component.html',
-    styleUrls: ['./education.component.scss'],
-    standalone: false
+  selector: 'app-education',
+  templateUrl: './education.component.html',
+  styleUrls: ['./education.component.scss'],
+  imports: [TranslatePipe],
 })
-export class EducationComponent implements OnInit {
+export class EducationComponent {
+  private readonly portfolioStore = inject(PortfolioStore);
 
-    educations: Education[] = [];
-
-    constructor(
-        private dataService: DataService) { }
-
-    ngOnInit(): void {
-        this.educations = this.dataService.educations;
-    }
-
+  readonly educations = this.portfolioStore.educations;
 }

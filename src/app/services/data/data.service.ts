@@ -1,14 +1,22 @@
 import { Injectable } from '@angular/core';
-import {Education} from '../../model/education.model';
-import {AboutMe} from '../../model/about-me.model';
-import {Experience} from '../../model/experience.model';
+import { Observable, of } from 'rxjs';
+import { Education } from '../../model/education.model';
+import { AboutMe } from '../../model/about-me.model';
+import { Experience } from '../../model/experience.model';
 
+/**
+ * Data-access layer for the portfolio content.
+ *
+ * The content is currently served from in-memory arrays, but every accessor
+ * returns an Observable so that switching to the future admin-managed API only
+ * requires replacing the `of(...)` bodies with real HTTP calls — no consumer
+ * (the PortfolioStore) needs to change.
+ */
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DataService {
-
-  public aboutMe: AboutMe[] = [
+  private readonly aboutMe: AboutMe[] = [
     {
       id: 1,
       description: 'about-me.description-01'
@@ -43,7 +51,7 @@ export class DataService {
     }
   ];
 
-  public experience: Experience[] =  [
+  private readonly experience: Experience[] = [
     {
       id: 1,
       companyName: 'experience.01.company-name',
@@ -218,7 +226,7 @@ export class DataService {
     }
   ];
 
-  public educations: Education[] = [{
+  private readonly educations: Education[] = [{
     id: 1,
     title: 'education.01.title',
     date: 'education.01.date',
@@ -237,5 +245,15 @@ export class DataService {
       description: 'education.03.description'
     }];
 
-  constructor() {}
+  getAboutMe(): Observable<AboutMe[]> {
+    return of(this.aboutMe);
+  }
+
+  getExperience(): Observable<Experience[]> {
+    return of(this.experience);
+  }
+
+  getEducations(): Observable<Education[]> {
+    return of(this.educations);
+  }
 }
