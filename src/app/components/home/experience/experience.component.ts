@@ -11,7 +11,7 @@ import {Experience} from '../../../model/experience.model';
 export class ExperienceComponent implements OnInit {
 
   active = 0;
-  experienceList: Experience[];
+  experienceList: Experience[] = [];
 
   constructor(
     private dataService: DataService,

@@ -1,19 +1,19 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateModule } from '@ngx-translate/core';
 import { ProficiencyComponent } from './proficiency.component';
+import { HomeModule } from '../home.module';
+import { commonTestProviders } from '../../../../testing/test-providers';
 
-describe('ProyectsComponent', () => {
+describe('ProficiencyComponent', () => {
   let component: ProficiencyComponent;
   let fixture: ComponentFixture<ProficiencyComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ProficiencyComponent ]
-    })
-    .compileComponents();
-  }));
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [HomeModule, TranslateModule.forRoot()],
+      providers: [commonTestProviders()],
+    }).compileComponents();
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(ProficiencyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

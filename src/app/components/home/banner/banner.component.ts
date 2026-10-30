@@ -30,8 +30,10 @@ export class BannerComponent implements OnInit {
   }
 
   sayHi(): void {
-    const contact: string = 'contact';
-    this.router.navigate(['/home']).then(() => document.getElementById(contact).scrollIntoView({behavior: 'smooth'}));
+    const contact = 'contact';
+    this.router
+      .navigate(['/home'])
+      .then(() => document.getElementById(contact)?.scrollIntoView({ behavior: 'smooth' }));
   }
 
 }

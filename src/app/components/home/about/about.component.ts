@@ -10,7 +10,7 @@ import {AboutMe} from '../../../model/about-me.model';
 })
 export class AboutComponent implements OnInit {
 
-  descriptions: AboutMe[];
+  descriptions: AboutMe[] = [];
 
   constructor(
     private dataService: DataService

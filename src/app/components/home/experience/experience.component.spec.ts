@@ -1,25 +1,29 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateModule } from '@ngx-translate/core';
+import { ExperienceComponent } from './experience.component';
+import { HomeModule } from '../home.module';
+import { commonTestProviders } from '../../../../testing/test-providers';
 
-import { JobsComponent } from './jobs.component';
+describe('ExperienceComponent', () => {
+  let component: ExperienceComponent;
+  let fixture: ComponentFixture<ExperienceComponent>;
 
-describe('JobsComponent', () => {
-  let component: JobsComponent;
-  let fixture: ComponentFixture<JobsComponent>;
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [HomeModule, TranslateModule.forRoot()],
+      providers: [commonTestProviders()],
+    }).compileComponents();
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ JobsComponent ]
-    })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(JobsComponent);
+    fixture = TestBed.createComponent(ExperienceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should load the experience list from the data service', () => {
+    expect(component.experienceList.length).toBeGreaterThan(0);
   });
 });

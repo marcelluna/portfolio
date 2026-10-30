@@ -10,7 +10,6 @@ import { ContactComponent } from './contact/contact.component';
 import { ExperienceComponent } from './experience/experience.component';
 import { ProficiencyComponent } from './proficiency/proficiency.component';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
-import { CarouselModule } from 'ngx-owl-carousel-o';
 import { HttpLoaderFactory } from '../general/httpLoaderFactory';
 import {EducationComponent} from './education/education.component';
 
@@ -29,7 +28,6 @@ import {EducationComponent} from './education/education.component';
   imports: [
     CommonModule,
     NgbNavModule,
-    CarouselModule,
     TranslateModule.forChild({
       loader: {
           provide: TranslateLoader,

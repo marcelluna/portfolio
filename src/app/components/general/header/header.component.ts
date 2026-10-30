@@ -2,7 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import {trigger, style, query, transition, stagger, animate } from '@angular/animations';
 import { UntypedFormControl } from '@angular/forms';
-import { LanguageService } from 'src/app/services/language/language.service';
+import { LanguageService } from '../../../services/language/language.service';
 
 @Component({
     selector: 'app-header',
@@ -25,7 +25,7 @@ import { LanguageService } from 'src/app/services/language/language.service';
 export class HeaderComponent implements OnInit {
 
   responsiveMenuVisible = false;
-  pageYPosition: number;
+  pageYPosition = 0;
   languageFormControl: UntypedFormControl = new UntypedFormControl();
   cvName = 'Marcel_Luna_DIGIT-TM_II-CV_012025.pdf';
 
@@ -43,30 +43,31 @@ export class HeaderComponent implements OnInit {
   }
 
   scroll(el: string): void {
-    if (document.getElementById(el)) {
-      document.getElementById(el).scrollIntoView({behavior: 'smooth'});
-    } else{
-      this.router.navigate(['/home']).then(() => document.getElementById(el).scrollIntoView({behavior: 'smooth'}) );
+    const element = document.getElementById(el);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      this.router
+        .navigate(['/home'])
+        .then(() => document.getElementById(el)?.scrollIntoView({ behavior: 'smooth' }));
     }
     this.responsiveMenuVisible = false;
   }
 
-  downloadCV(): void{
-    this.languageService.translateService.get('header.cv-name').subscribe(val => {
+  downloadCV(): void {
+    this.languageService.translateService.get('header.cv-name').subscribe((val: string) => {
       this.cvName = val;
-      console.log(val);
       // app url
       const url: string = window.location.href;
       // Open a new window with the CV
       window.open(url + '/../assets/cv/' + this.cvName, '_blank');
     });
-
   }
 
-  @HostListener('window:scroll', ['getScrollPosition($event)'])
-    getScrollPosition(event): void {
-        this.pageYPosition = window.pageYOffset;
-    }
+  @HostListener('window:scroll')
+  getScrollPosition(): void {
+    this.pageYPosition = window.scrollY;
+  }
 
     changeLanguage(language: string): void  {
       this.languageFormControl.setValue(language);
