@@ -1,0 +1,44 @@
+<section class="section projects" id="projects">
+  <div class="container">
+    <div class="section-box">
+      <div data-aos="fade-up" data-aos-duration="1000">
+        <h3 class="section-title">
+          <span class="n-section-title">06.</span> {{ 'label.projects' | translate }}
+        </h3>
+      </div>
+
+      @if (loading()) {
+        <p class="projects-status">{{ 'label.loading' | translate }}</p>
+      } @else if (!hasProjects()) {
+        <p class="projects-status">{{ 'label.projects-empty' | translate }}</p>
+      } @else {
+        <div class="row mt-4">
+          @for (project of projects(); track project.id) {
+            <div class="col-12 col-md-6 col-lg-4 project-col" data-aos="fade-up" data-aos-duration="1000">
+              <article class="project-card">
+                <header class="project-card-header">
+                  <i class="far fa-folder-open folder-icon"></i>
+                  <a
+                    [href]="project.downloadUrl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-link"
+                    [attr.aria-label]="project.title"
+                  >
+                    @if (project.isGithub) {
+                      <i class="fab fa-github"></i>
+                    } @else {
+                      <i class="fas fa-download"></i>
+                    }
+                  </a>
+                </header>
+                <h4 class="project-title">{{ project.title }}</h4>
+                <p class="project-description">{{ project.description }}</p>
+              </article>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,95 @@
+@use "./../../../../variables.scss";
+
+.project-list {
+  color: variables.$LightSlate;
+}
+
+.list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+
+  h2 {
+    color: variables.$LightestSlate;
+    font-size: 1.25rem;
+    margin: 0;
+  }
+}
+
+.list-error {
+  color: #ff6b6b;
+  margin-bottom: 1rem;
+}
+
+.list-status {
+  color: variables.$Slate;
+}
+
+.list-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th,
+  td {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid variables.$LightestNavy;
+  }
+
+  th {
+    color: variables.$Slate;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  td {
+    color: variables.$LightSlate;
+  }
+}
+
+.actions-col {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+
+  &.badge-github {
+    background: variables.$GreenOpacity;
+    color: variables.$Green;
+  }
+
+  &.badge-file {
+    background: rgba(168, 178, 209, 0.12);
+    color: variables.$LightSlate;
+  }
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: variables.$Green;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0 0.5rem;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &.danger {
+    color: #ff6b6b;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
