@@ -1,7 +1,9 @@
 #!/bin/bash
+# Builds the production bundle. The deployable artifacts are the CONTENTS of
+# dist/browser/ — upload those to your Hostinger web root (public_html).
+# See DEPLOY.md for the full steps.
+set -e
 ng build --configuration production
-git checkout production
-find . -maxdepth 1 -type f -not \( -name ".git" -or -name ".gitignore" -or -name "production.sh" \) -delete
-rm -rf assets
-cp -r dist/andresjosehr-portfolio/* ./
-cp dist/andresjosehr-portfolio/.htaccess ./.htaccess
+echo
+echo "Build complete. Upload the CONTENTS of dist/browser/ to public_html:"
+ls -A dist/browser/
