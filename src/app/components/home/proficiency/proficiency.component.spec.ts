@@ -20,4 +20,9 @@ describe('ProficiencyComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should expose the proficiency categories from the store', () => {
+    expect(component.categories().length).toBeGreaterThan(0);
+    expect(component.categories()[0].skills.length).toBeGreaterThan(0);
+  });
 });

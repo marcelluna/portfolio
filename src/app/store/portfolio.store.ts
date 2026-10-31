@@ -14,11 +14,13 @@ import { DataService } from '../services/data/data.service';
 import { AboutMe } from '../model/about-me.model';
 import { Experience } from '../model/experience.model';
 import { Education } from '../model/education.model';
+import { SkillCategory } from '../model/skill.model';
 
 interface PortfolioState {
   aboutMe: AboutMe[];
   experience: Experience[];
   educations: Education[];
+  proficiency: SkillCategory[];
   loading: boolean;
   error: string | null;
 }
@@ -27,6 +29,7 @@ const initialState: PortfolioState = {
   aboutMe: [],
   experience: [],
   educations: [],
+  proficiency: [],
   loading: false,
   error: null,
 };
@@ -59,13 +62,15 @@ export const PortfolioStore = signalStore(
               aboutMe: dataService.getAboutMe(),
               experience: dataService.getExperience(),
               educations: dataService.getEducations(),
+              proficiency: dataService.getProficiency(),
             }).pipe(
               tapResponse({
-                next: ({ aboutMe, experience, educations }) =>
+                next: ({ aboutMe, experience, educations, proficiency }) =>
                   patchState(store, {
                     aboutMe,
                     experience,
                     educations,
+                    proficiency,
                     loading: false,
                   }),
                 error: (error: Error) =>

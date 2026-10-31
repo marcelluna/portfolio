@@ -1,33 +1,66 @@
 @use "./../../../../variables.scss";
-.skills-list{
+
+.skills-grid {
   display: grid;
-  grid-template-columns: repeat(2,minmax(140px,200px));
-  overflow: hidden;
-  padding: 0;
-  margin: 20px 0 0 0;
-  list-style: none;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
-.skill-element{
-  position: relative;
-  margin-bottom: 10px;
-  padding-left: 20px;
-  font-size: 13px;
-  font-family: variables.$CodeFont;
-  color: variables.$Slate;
-  span{
-    padding-bottom: 5px;
-  }
-  &:before {
-    content: '▹';
-    position: absolute;
-    left: 0;
-    color: variables.$Green;
-    font-size: 14px;
-    line-height: 12px;
+
+.skill-category {
+  background: variables.$LightNavy;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 1.5rem 1.75rem;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+
+  &:hover {
+    border-color: rgba(variables.$Accent, 0.35);
+    transform: translateY(-4px);
   }
 }
 
-.proficiency-col {
-  padding: 10px;
-  height: 400px;
+.skill-category-title {
+  color: variables.$LightestSlate;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 1.1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid variables.$LightestNavy;
+}
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skill-element {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.4rem 0;
+  font-family: variables.$CodeFont;
+}
+
+.skill-name {
+  color: variables.$LightSlate;
+  font-size: 0.85rem;
+}
+
+.skill-stars {
+  flex-shrink: 0;
+  white-space: nowrap;
+
+  i {
+    font-size: 0.72rem;
+    color: variables.$Accent;
+    margin-left: 1px;
+  }
+
+  // Empty (outline) stars are dimmed so filled ones read clearly.
+  .far {
+    color: rgba(variables.$Accent, 0.3);
+  }
 }

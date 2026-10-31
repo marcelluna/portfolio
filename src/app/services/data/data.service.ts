@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { Education } from '../../model/education.model';
 import { AboutMe } from '../../model/about-me.model';
 import { Experience } from '../../model/experience.model';
+import { SkillCategory } from '../../model/skill.model';
 
 /**
  * Data-access layer for the portfolio content.
@@ -245,8 +246,114 @@ export class DataService {
       description: 'education.03.description'
     }];
 
+  private readonly proficiency: SkillCategory[] = [
+    {
+      titleKey: 'proficiency.category.languages',
+      skills: [
+        { name: 'Java (6 / 8 / 21 / 25)', rating: 5 },
+        { name: 'JavaScript', rating: 5 },
+        { name: 'TypeScript', rating: 5 },
+        { name: 'Angular 21 (Signals)', rating: 5 },
+        { name: 'Spring / Spring Boot / Cloud', rating: 5 },
+        { name: 'Spring Core', rating: 5 },
+        { name: 'Spring Security', rating: 4 },
+        { name: 'Hibernate', rating: 5 },
+        { name: 'JSF', rating: 5 },
+        { name: 'Struts', rating: 3 },
+        { name: 'HTML', rating: 5 },
+        { name: 'CSS', rating: 5 },
+        { name: 'Ionic', rating: 4 },
+        { name: 'JSON', rating: 4 },
+        { name: 'Jackson / Gson', rating: 5 },
+      ],
+    },
+    {
+      titleKey: 'proficiency.category.databases',
+      skills: [
+        { name: 'MySQL', rating: 5 },
+        { name: 'PostgreSQL', rating: 5 },
+        { name: 'SQL Server', rating: 5 },
+        { name: 'Oracle', rating: 4 },
+        { name: 'NoSQL', rating: 5 },
+        { name: 'Elasticsearch', rating: 4 },
+      ],
+    },
+    {
+      titleKey: 'proficiency.category.cloud-devops',
+      skills: [
+        { name: 'AWS', rating: 5 },
+        { name: 'Kubernetes', rating: 4 },
+        { name: 'CI/CD (GitLab, Bamboo)', rating: 5 },
+        { name: 'GitLab', rating: 5 },
+        { name: 'Cloud Native (Spring Cloud)', rating: 5 },
+        { name: 'Zuul', rating: 4 },
+        { name: 'Apache', rating: 5 },
+        { name: 'Tomcat', rating: 5 },
+        { name: 'JBoss', rating: 4 },
+        { name: 'Weblogic', rating: 4 },
+        { name: 'Maven', rating: 4 },
+        { name: 'Ant', rating: 2 },
+        { name: 'Linux', rating: 5 },
+        { name: 'Windows', rating: 5 },
+      ],
+    },
+    {
+      titleKey: 'proficiency.category.architecture',
+      skills: [
+        { name: 'Microservices', rating: 5 },
+        { name: 'SOA', rating: 4 },
+        { name: 'Event Sourcing', rating: 4 },
+        { name: 'CQRS', rating: 5 },
+        { name: 'Enterprise Architecture', rating: 5 },
+        { name: 'Design Patterns', rating: 5 },
+        { name: 'UML', rating: 5 },
+        { name: 'SOAP', rating: 5 },
+        { name: 'Business Process Analysis', rating: 5 },
+        { name: 'TDD', rating: 3 },
+        { name: 'BDD', rating: 3 },
+        { name: 'JUnit', rating: 4 },
+      ],
+    },
+    {
+      titleKey: 'proficiency.category.ways-of-working',
+      skills: [
+        { name: 'AI-assisted Development / AI Integration', rating: 4 },
+        { name: 'Scrum', rating: 4 },
+        { name: 'Agile', rating: 5 },
+        { name: 'PMP', rating: 4 },
+        { name: 'Jira', rating: 4 },
+        { name: 'Confluence', rating: 4 },
+        { name: 'Bitbucket', rating: 5 },
+        { name: 'Bamboo', rating: 3 },
+        { name: 'SVN (Subversion)', rating: 4 },
+        { name: 'IntelliJ IDEA', rating: 5 },
+      ],
+    },
+    {
+      titleKey: 'proficiency.category.networking',
+      skills: [
+        { name: 'Cisco', rating: 5 },
+        { name: 'Extreme', rating: 5 },
+        { name: 'D-Link', rating: 5 },
+      ],
+    },
+    {
+      titleKey: 'proficiency.category.languages-spoken',
+      skills: [
+        { name: 'Português', rating: 5 },
+        { name: 'English', rating: 5 },
+        { name: 'Français', rating: 3 },
+        { name: 'Nederlands', rating: 2 },
+      ],
+    },
+  ];
+
   getAboutMe(): Observable<AboutMe[]> {
     return of(this.aboutMe);
+  }
+
+  getProficiency(): Observable<SkillCategory[]> {
+    return of(this.proficiency);
   }
 
   getExperience(): Observable<Experience[]> {

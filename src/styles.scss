@@ -11,12 +11,12 @@ body {
   -webkit-font-smoothing: antialiased;
   background-color: variables.$Navy;
   color: variables.$Slate !important;
-  line-height: 1.3;
+  line-height: 1.5;
   font-family: variables.$MainFont;
-  font-size: 20px;
+  font-size: 19px;
 }
 .section-box {
-  padding: 130px 0;
+  padding: clamp(70px, 11vw, 130px) 0;
 }
 .section {
   background: variables.$Navy;
@@ -72,24 +72,25 @@ body {
 }
 
 .main-btn {
-  color: variables.$Green;
+  color: variables.$Accent;
   background-color: transparent;
-  border: 1px solid variables.$Green;
-  border-radius: 3px;
+  border: 1px solid variables.$Accent;
+  border-radius: 6px;
   font-size: 13px;
   font-family: variables.$CodeFont;
   line-height: 1;
-  -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
-  -webkit-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-  padding: 1.25rem 1.75rem;
+  padding: 1.1rem 1.6rem;
 
   &:hover,
   &:focus,
   &:active {
-    background-color: rgba(100, 255, 218, 0.07);
+    background-color: variables.$AccentOpacity;
+    box-shadow: 0 0 0 1px variables.$Accent,
+      0 8px 24px -12px rgba(variables.$Accent, 0.5);
+    transform: translateY(-2px);
     outline: none;
   }
 }
@@ -104,7 +105,7 @@ a {
 }
 
 p {
-  text-align: justify;
+  text-align: left;
 }
 
 .underline {
@@ -206,4 +207,57 @@ p {
   body {
     font-size: 18px;
   }
+}
+
+/* ---------- Modern polish (palette-aware) ---------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: rgba(variables.$Accent, 0.25);
+  color: variables.$White;
+}
+
+/* Subtle accent glow anchored to the top of the page. */
+body {
+  background-image: radial-gradient(
+    120% 80% at 85% -10%,
+    rgba(variables.$Accent, 0.08) 0%,
+    rgba(variables.$Accent, 0) 55%
+  );
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* Themed scrollbar. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: variables.$LightestNavy variables.$Navy;
+}
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+::-webkit-scrollbar-track {
+  background: variables.$Navy;
+}
+::-webkit-scrollbar-thumb {
+  background: variables.$LightestNavy;
+  border-radius: 6px;
+  border: 2px solid variables.$Navy;
+
+  &:hover {
+    background: variables.$Slate;
+  }
+}
+
+/* The accent divider line after section titles — give it an accent fade. */
+.section-title:after {
+  background: linear-gradient(
+    90deg,
+    variables.$LightestNavy 0%,
+    rgba(variables.$Accent, 0) 100%
+  ) !important;
 }
