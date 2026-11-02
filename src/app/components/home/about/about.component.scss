@@ -4,6 +4,11 @@
     .about-description{
         margin-top: 30px;
         max-width: 480px;
+
+        p {
+            text-align: justify;
+            hyphens: auto;
+        }
     }
     .about-img-container{
         width: 324px;

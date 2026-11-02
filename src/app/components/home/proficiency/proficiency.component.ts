@@ -1,45 +1,20 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Component, inject } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
+import { PortfolioStore } from '../../../store/portfolio.store';
+
+const MAX_RATING = 5;
 
 @Component({
-    selector: 'app-proficiency',
-    templateUrl: './proficiency.component.html',
-    styleUrls: ['./proficiency.component.scss'],
-    standalone: false
+  selector: 'app-proficiency',
+  templateUrl: './proficiency.component.html',
+  styleUrls: ['./proficiency.component.scss'],
+  imports: [TranslatePipe],
 })
-export class ProficiencyComponent implements OnInit {
+export class ProficiencyComponent {
+  private readonly portfolioStore = inject(PortfolioStore);
 
-  customOptions: OwlOptions = {
-    loop: true,
-    mouseDrag: true,
-    touchDrag: true,
-    pullDrag: false,
-    navSpeed: 700,
-    items: 1,
-    autoplay: true,
-    autoplayTimeout: 3000
-  };
+  readonly categories = this.portfolioStore.proficiency;
 
-  @ViewChild('imgContainer') imgContainer: ElementRef;
-
-  proficiencyList: string[] = [''];
-
-  constructor(
-  ) { }
-
-  ngOnInit(): void {
-
-
-
-  }
-
-  debug(): void{
-
-    this.imgContainer.nativeElement.scroll({
-      top: this.imgContainer.nativeElement.scrollHeight,
-      left: 0,
-      behavior: 'smooth',
-    });
-  }
-
+  /** Fixed [1..5] scale used to render the star row for a given rating. */
+  readonly stars = Array.from({ length: MAX_RATING }, (_, i) => i + 1);
 }

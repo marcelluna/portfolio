@@ -11,7 +11,7 @@
         <ul ngbNav #nav="ngbNav" [(activeId)]="active" orientation="vertical"
             class="nav-tabs jobs-tabs">
 
-          @for (experience of experienceList; track experience.id) {
+          @for (experience of experienceList(); track experience.id) {
             <li [title]="experience.companyName" [ngbNavItem]="experience.id">
               <a ngbNavLink>{{ experience.companyName | translate }}</a>
 
@@ -20,8 +20,9 @@
                 <span class="company-tab-content">{{ experience.title | translate }}</span>
                 <h5 class="job-time">{{ experience.date | translate }}</h5>
 
-                <p *ngFor="let jobDescriptionParagraph of experience.description; let i = index"
-                   class="job-description" [innerHTML]="jobDescriptionParagraph | translate" ></p>
+                @for (jobDescriptionParagraph of experience.description; track $index) {
+                  <p class="job-description" [innerHTML]="jobDescriptionParagraph | translate"></p>
+                }
                 <span></span>
               </ng-template>
             </li>

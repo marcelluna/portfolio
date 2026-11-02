@@ -1,0 +1,80 @@
+<div class="project-form">
+  <h2>{{ projectId() === null ? 'New project' : 'Edit project' }}</h2>
+
+  @if (error()) {
+    <p class="form-error" role="alert">{{ error() }}</p>
+  }
+
+  <form [formGroup]="form" (ngSubmit)="save()">
+    <div class="field-grid">
+      <div class="form-group">
+        <label for="titleEn">Title (EN)</label>
+        <input id="titleEn" class="form-control" formControlName="titleEn" />
+      </div>
+      <div class="form-group">
+        <label for="titlePt">Title (PT)</label>
+        <input id="titlePt" class="form-control" formControlName="titlePt" />
+      </div>
+    </div>
+
+    <div class="field-grid">
+      <div class="form-group">
+        <label for="descriptionEn">Description (EN)</label>
+        <textarea id="descriptionEn" class="form-control" rows="4" formControlName="descriptionEn"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="descriptionPt">Description (PT)</label>
+        <textarea id="descriptionPt" class="form-control" rows="4" formControlName="descriptionPt"></textarea>
+      </div>
+    </div>
+
+    <fieldset class="source-group">
+      <legend>Source</legend>
+      <div class="source-toggle">
+        <button
+          type="button"
+          [class.active]="sourceType() === 'file'"
+          (click)="setSource('file')"
+        >
+          Uploaded file
+        </button>
+        <button
+          type="button"
+          [class.active]="sourceType() === 'github'"
+          (click)="setSource('github')"
+        >
+          GitHub link
+        </button>
+      </div>
+
+      @if (sourceType() === 'file') {
+        <div class="form-group">
+          <label for="file">File (PDF or ZIP, max 25 MB — zip any .exe)</label>
+          <input id="file" type="file" accept=".pdf,.zip" (change)="onFileSelected($event)" />
+          @if (uploading()) {
+            <p class="field-hint">Uploading…</p>
+          } @else if (uploadedFileUrl()) {
+            <p class="field-hint success">File ready: {{ uploadedFileUrl() }}</p>
+          }
+        </div>
+      } @else {
+        <div class="form-group">
+          <label for="githubUrl">GitHub URL</label>
+          <input
+            id="githubUrl"
+            class="form-control"
+            formControlName="githubUrl"
+            placeholder="https://github.com/marcelluna/project"
+          />
+        </div>
+      }
+    </fieldset>
+
+    <div class="form-actions">
+      <button type="button" class="ghost-btn" (click)="cancel()">Cancel</button>
+      <button type="submit" class="main-btn" [disabled]="form.invalid || saving() || uploading()">
+        {{ saving() ? 'Saving…' : 'Save' }}
+      </button>
+    </div>
+  </form>
+</div>

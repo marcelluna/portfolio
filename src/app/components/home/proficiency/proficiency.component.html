@@ -3,70 +3,33 @@
         <div class="section-box">
             <div data-aos="fade-up" data-aos-duration="1000">
                 <h3 class="section-title">
-                    <span class='n-section-title'>04.</span> {{ 'label.proficiency' | translate}}
+                    <span class='n-section-title'>04.</span> {{ 'label.proficiency' | translate }}
                 </h3>
             </div>
-          <div class="container">
-            <div class="row align-items-start">
 
-              <div class="col" data-aos="fade-up" data-aos-duration="1000">
-                  <h5 class="other-proyect-title mt-4">{{ 'label.proficiency.programming' | translate}}</h5>
-                  <ul class="skills-list" data-aos="fade-up">
-                      <li class="skill-element" data-aos="fade-up" data-aos-duration="1000"><span class="underline">{{ 'label.proficiency.java' | translate }}</span></li>
-                      <li class="skill-element" data-aos="fade-up" data-aos-duration="1000"><span class="underline">{{ 'label.proficiency.cSharp' | translate }}</span></li>
-                      <li class="skill-element" data-aos="fade-up" data-aos-duration="1000"><span class="underline">{{ 'label.proficiency.spring' | translate }}</span></li>
-                      <li class="skill-element" data-aos="fade-up" data-aos-duration="1000"><span class="underline">{{ 'label.proficiency.html' | translate }}</span></li>
-                      <li class="skill-element" data-aos="fade-up" data-aos-duration="1000"><span class="underline">{{ 'label.proficiency.angular' | translate }}</span></li>
-                      <li class="skill-element" data-aos="fade-up" data-aos-duration="1000"><span class="underline">{{ 'label.proficiency.ionic' | translate }}</span></li>
-                      <li class="skill-element" data-aos="fade-up" data-aos-duration="1000"><span class="underline">{{ 'label.proficiency.css' | translate }}</span></li>
-                      <li class="skill-element" data-aos="fade-up" data-aos-duration="1000"><span class="underline">{{ 'label.proficiency.typeScript' | translate }}</span></li>
-                  </ul>
-              </div>
-              <div class="col" data-aos="fade-up" data-aos-duration="1000">
-                <h5 class="other-proyect-title mt-4">{{ 'label.proficiency.databases' | translate}}</h5>
-                <ul class="skills-list" data-aos="fade-up">
-                  <li class="skill-element" data-aos="fade-up" data-aos-duration="1000"><span class="underline">{{ 'label.proficiency.oracle' | translate }}</span></li>
-                  <li class="skill-element" data-aos="fade-up" data-aos-duration="1000"><span class="underline">{{ 'label.proficiency.mysql' | translate }}</span></li>
-                  <li class="skill-element" data-aos="fade-up" data-aos-duration="1000"><span class="underline">{{ 'label.proficiency.postgres' | translate }}</span></li>
-                  <li class="skill-element" data-aos="fade-up" data-aos-duration="1000"><span class="underline">{{ 'label.proficiency.maria-db' | translate }}</span></li>
-                  <li class="skill-element" data-aos="fade-up" data-aos-duration="1000"><span class="underline">{{ 'label.proficiency.mongo-db' | translate }}</span></li>
-                  <li class="skill-element" data-aos="fade-up" data-aos-duration="1000"><span class="underline">{{ 'label.proficiency.redis' | translate }}</span></li>
-                  <li class="skill-element" data-aos="fade-up" data-aos-duration="1000"><span class="underline">{{ 'label.proficiency.other-sql' | translate }}</span></li>
-                </ul>
-              </div>
-              <div class="col" data-aos="fade-up" data-aos-duration="1000">
-                <h5 class="other-proyect-title mt-4">{{ 'label.proficiency.os' | translate}}</h5>
-                <ul class="skills-list" data-aos="fade-up">
-                  <li class="skill-element" data-aos="fade-up" data-aos-duration="1000"><span class="underline">{{ 'label.proficiency.windows' | translate }}</span></li>
-                  <li class="skill-element" data-aos="fade-up" data-aos-duration="1000"><span class="underline">{{ 'label.proficiency.linux' | translate }} </span></li>
-                  <li class="skill-element" data-aos="fade-up" data-aos-duration="1000"><span class="underline">{{ 'label.proficiency.macos' | translate }}</span></li>
-                </ul>
-              </div>
-
+            <div class="skills-grid">
+                @for (category of categories(); track category.titleKey) {
+                    <div class="skill-category" data-aos="fade-up" data-aos-duration="1000">
+                        <h5 class="skill-category-title">{{ category.titleKey | translate }}</h5>
+                        <ul class="skills-list">
+                            @for (skill of category.skills; track skill.name) {
+                                <li class="skill-element">
+                                    <span class="skill-name">{{ skill.name }}</span>
+                                    <span class="skill-stars" [attr.aria-label]="skill.rating + '/5'">
+                                        @for (star of stars; track star) {
+                                            <i
+                                                class="fa-star"
+                                                [class.fas]="star <= skill.rating"
+                                                [class.far]="star > skill.rating"
+                                            ></i>
+                                        }
+                                    </span>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                }
             </div>
-            <div class="row align-items-start">
-
-              <div class="col" data-aos="fade-up" data-aos-duration="1000">
-                <h5 class="other-proyect-title mt-4">{{ 'label.proficiency.network' | translate}}</h5>
-                <ul class="skills-list" data-aos="fade-up">
-                  <li class="skill-element" data-aos="fade-up" data-aos-duration="1000"><span class="underline">{{ 'label.proficiency.cisco' | translate }}</span></li>
-                  <li class="skill-element" data-aos="fade-up" data-aos-duration="1000"><span class="underline">{{ 'label.proficiency.extreme' | translate }}</span></li>
-                  <li class="skill-element" data-aos="fade-up" data-aos-duration="1000"><span class="underline">{{ 'label.proficiency.juniper' | translate }}</span></li>
-                  <li class="skill-element" data-aos="fade-up" data-aos-duration="1000"><span class="underline">{{ 'label.proficiency.d-link' | translate }}</span></li>
-                </ul>
-              </div>
-              <div class="col" data-aos="fade-up" data-aos-duration="1000">
-                <h5 class="other-proyect-title mt-4">{{ 'label.proficiency.language' | translate}}</h5>
-                <ul class="skills-list" data-aos="fade-up">
-                  <li class="skill-element" data-aos="fade-up" data-aos-duration="1000"><span class="underline">{{ 'label.proficiency.portuguese' | translate }}</span></li>
-                  <li class="skill-element" data-aos="fade-up" data-aos-duration="1000"><span class="underline">{{ 'label.proficiency.english' | translate }}</span></li>
-                  <li class="skill-element" data-aos="fade-up" data-aos-duration="1000"><span class="underline">{{ 'label.proficiency.french' | translate }}</span></li>
-                  <li class="skill-element" data-aos="fade-up" data-aos-duration="1000"><span class="underline">{{ 'label.proficiency.dutch' | translate }}</span></li>
-                </ul>
-              </div>
-
-            </div>
-          </div>
-    </div>
+        </div>
     </div>
 </section>

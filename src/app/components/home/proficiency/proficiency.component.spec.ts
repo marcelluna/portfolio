@@ -1,19 +1,17 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProficiencyComponent } from './proficiency.component';
+import { commonTestProviders } from '../../../../testing/test-providers';
 
-describe('ProyectsComponent', () => {
+describe('ProficiencyComponent', () => {
   let component: ProficiencyComponent;
   let fixture: ComponentFixture<ProficiencyComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ProficiencyComponent ]
-    })
-    .compileComponents();
-  }));
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [ProficiencyComponent],
+      providers: [commonTestProviders()],
+    }).compileComponents();
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(ProficiencyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -21,5 +19,10 @@ describe('ProyectsComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should expose the proficiency categories from the store', () => {
+    expect(component.categories().length).toBeGreaterThan(0);
+    expect(component.categories()[0].skills.length).toBeGreaterThan(0);
   });
 });

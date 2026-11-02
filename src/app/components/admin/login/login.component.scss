@@ -1,0 +1,52 @@
+@use "./../../../../variables.scss";
+
+.admin-login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: variables.$Navy;
+  padding: 2rem;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  background: variables.$LightNavy;
+  border-radius: 8px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+}
+
+.login-title {
+  color: variables.$LightestSlate;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.login-error {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+
+  label {
+    display: block;
+    color: variables.$Slate;
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+  }
+}
+
+.main-btn {
+  width: 100%;
+  margin-top: 0.5rem;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}

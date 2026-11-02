@@ -1,3 +1,7 @@
-<app-header></app-header>
+@if (showPortfolioChrome()) {
+  <app-header></app-header>
+}
 <router-outlet></router-outlet>
-<app-footer></app-footer>
+@if (showPortfolioChrome()) {
+  <app-footer></app-footer>
+}

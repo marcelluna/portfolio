@@ -1,0 +1,43 @@
+<section class="admin-login">
+  <div class="login-card">
+    <h1 class="login-title">Admin sign in</h1>
+
+    @if (authStore.error()) {
+      <p class="login-error" role="alert">{{ authStore.error() }}</p>
+    }
+
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+      <div class="form-group input-settings">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          class="form-control"
+          formControlName="email"
+          autocomplete="username"
+          placeholder="you@example.com"
+        />
+      </div>
+
+      <div class="form-group input-settings">
+        <label for="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          class="form-control"
+          formControlName="password"
+          autocomplete="current-password"
+          placeholder="••••••••"
+        />
+      </div>
+
+      <button
+        type="submit"
+        class="main-btn"
+        [disabled]="loginForm.invalid || authStore.loading()"
+      >
+        {{ authStore.loading() ? 'Signing in…' : 'Sign in' }}
+      </button>
+    </form>
+  </div>
+</section>

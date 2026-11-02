@@ -1,4 +1,7 @@
 export const environment = {
   production: true,
-  apiUrl: './email'
+  // Endpoint for the public contact form.
+  apiUrl: './email',
+  // Base URL of the portfolio-api (NestJS) backend.
+  adminApiUrl: 'https://api.marcelluna.com',
 };

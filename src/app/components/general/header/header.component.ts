@@ -1,74 +1,51 @@
-import { Component, OnInit, HostListener } from '@angular/core';
-import { Router } from '@angular/router';
-import {trigger, style, query, transition, stagger, animate } from '@angular/animations';
-import { UntypedFormControl } from '@angular/forms';
-import { LanguageService } from 'src/app/services/language/language.service';
+import { Component, HostListener, inject, signal } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { LanguageStore, SupportedLanguage } from '../../../store/language.store';
 
 @Component({
-    selector: 'app-header',
-    templateUrl: './header.component.html',
-    styleUrls: ['./header.component.scss'],
-    animations: [
-        trigger('animateMenu', [
-            transition(':enter', [
-                query('*', [
-                    style({ opacity: 0, transform: 'translateY(-50%)' }),
-                    stagger(50, [
-                        animate('250ms cubic-bezier(0.35, 0, 0.25, 1)', style({ opacity: 1, transform: 'none' }))
-                    ])
-                ])
-            ])
-        ])
-    ],
-    standalone: false
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss'],
+  imports: [RouterLink, NgbNavModule, NgbDropdownModule, TranslatePipe],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
+  private readonly router = inject(Router);
+  private readonly translateService = inject(TranslateService);
+  readonly languageStore = inject(LanguageStore);
 
   responsiveMenuVisible = false;
-  pageYPosition: number;
-  languageFormControl: UntypedFormControl = new UntypedFormControl();
+  readonly pageYPosition = signal(0);
   cvName = 'Marcel_Luna_DIGIT-TM_II-CV_012025.pdf';
 
-  constructor(
-    private router: Router,
-    public languageService: LanguageService
-  ) { }
-
-  ngOnInit(): void {
-
-    this.languageFormControl.valueChanges.subscribe(val => this.languageService.changeLanguage(val));
-
-    this.languageFormControl.setValue(this.languageService.language);
-
-  }
-
   scroll(el: string): void {
-    if (document.getElementById(el)) {
-      document.getElementById(el).scrollIntoView({behavior: 'smooth'});
-    } else{
-      this.router.navigate(['/home']).then(() => document.getElementById(el).scrollIntoView({behavior: 'smooth'}) );
+    const element = document.getElementById(el);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      this.router
+        .navigate(['/home'])
+        .then(() => document.getElementById(el)?.scrollIntoView({ behavior: 'smooth' }));
     }
     this.responsiveMenuVisible = false;
   }
 
-  downloadCV(): void{
-    this.languageService.translateService.get('header.cv-name').subscribe(val => {
+  downloadCV(): void {
+    this.translateService.get('header.cv-name').subscribe((val: string) => {
       this.cvName = val;
-      console.log(val);
-      // app url
       const url: string = window.location.href;
-      // Open a new window with the CV
       window.open(url + '/../assets/cv/' + this.cvName, '_blank');
     });
-
   }
 
-  @HostListener('window:scroll', ['getScrollPosition($event)'])
-    getScrollPosition(event): void {
-        this.pageYPosition = window.pageYOffset;
-    }
+  @HostListener('window:scroll')
+  getScrollPosition(): void {
+    this.pageYPosition.set(window.scrollY);
+  }
 
-    changeLanguage(language: string): void  {
-      this.languageFormControl.setValue(language);
-    }
+  changeLanguage(language: SupportedLanguage): void {
+    this.languageStore.changeLanguage(language);
+  }
 }

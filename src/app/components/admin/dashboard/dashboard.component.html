@@ -1,0 +1,13 @@
+<section class="admin-dashboard">
+  <header class="admin-header">
+    <h1 class="admin-title">Portfolio admin</h1>
+    <nav class="admin-nav">
+      <a routerLink="projects" routerLinkActive="active">Projects</a>
+    </nav>
+    <button type="button" class="logout-btn" (click)="logout()">Sign out</button>
+  </header>
+
+  <main class="admin-content">
+    <router-outlet></router-outlet>
+  </main>
+</section>

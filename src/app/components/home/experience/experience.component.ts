@@ -1,24 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import {DataService} from '../../../services/data/data.service';
-import {Experience} from '../../../model/experience.model';
+import { Component, inject } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
+import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { PortfolioStore } from '../../../store/portfolio.store';
 
 @Component({
-    selector: 'app-experience',
-    templateUrl: './experience.component.html',
-    styleUrls: ['./experience.component.scss'],
-    standalone: false
+  selector: 'app-experience',
+  templateUrl: './experience.component.html',
+  styleUrls: ['./experience.component.scss'],
+  imports: [TranslatePipe, NgbNavModule],
 })
-export class ExperienceComponent implements OnInit {
+export class ExperienceComponent {
+  private readonly portfolioStore = inject(PortfolioStore);
 
   active = 0;
-  experienceList: Experience[];
-
-  constructor(
-    private dataService: DataService,
-  ) { }
-
-  ngOnInit(): void {
-    this.experienceList = this.dataService.experience;
-  }
-
+  readonly experienceList = this.portfolioStore.experience;
 }
