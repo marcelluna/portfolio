@@ -11,8 +11,8 @@ import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { tapResponse } from '@ngrx/operators';
 import { pipe, switchMap, tap } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
-import { AuthService } from '../services/auth/auth.service';
-import { LoginCredentials } from '../model/auth.model';
+import { AuthService } from '../../services/auth/auth.service';
+import { LoginCredentials } from '../../model/auth.model';
 
 const TOKEN_STORAGE_KEY = 'portfolio.admin.token';
 

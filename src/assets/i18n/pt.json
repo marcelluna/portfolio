@@ -267,5 +267,8 @@
   "label.name": "Digite seu nome",
   "label.message": "Entre com sua mensagem",
   "label.success": "Sua mensagem foi enviada com sucesso. Entrarei em contato assim que a ler.",
-  "label.failed": "Infelizmente, tivemos um problema ao enviar sua mensagem. Tente novamente. Se o erro persistir, avise-me diretamente por e-mail (marcel@marcelluna.com)"
+  "label.failed": "Infelizmente, tivemos um problema ao enviar sua mensagem. Tente novamente. Se o erro persistir, avise-me diretamente por e-mail (marcel@marcelluna.com)",
+  "label.sending": "Enviando...",
+  "label.send-success": "Email sent with success!",
+  "label.send-fail": "Fail to send email. please try again."
 }

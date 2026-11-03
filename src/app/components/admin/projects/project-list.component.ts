@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ProjectStore } from '../../../store/project.store';
+import { ProjectStore } from '../../../store/project/project.store';
 import { ProjectsService } from '../../../services/projects/projects.service';
 import { Project } from '../../../model/project.model';
 

@@ -1,6 +1,6 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { AuthStore } from '../store/auth.store';
+import { AuthStore } from '../store/auth/auth.store';
 
 /**
  * Protects the admin area. This is UX-level only — the API independently

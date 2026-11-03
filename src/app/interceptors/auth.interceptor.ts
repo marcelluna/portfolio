@@ -3,7 +3,7 @@ import { HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
-import { AuthStore } from '../store/auth.store';
+import { AuthStore } from '../store/auth/auth.store';
 
 /**
  * Attaches the admin JWT to requests targeting the portfolio-api backend, and

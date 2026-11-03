@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { AuthStore } from '../../../store/auth.store';
+import { AuthStore } from '../../../store/auth/auth.store';
 
 @Component({
   selector: 'app-admin-dashboard',

@@ -2,7 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProjectsService } from '../../../services/projects/projects.service';
-import { ProjectStore } from '../../../store/project.store';
+import { ProjectStore } from '../../../store/project/project.store';
 import { CreateProjectPayload, UpdateProjectPayload } from '../../../model/project.model';
 
 type SourceType = 'file' | 'github';

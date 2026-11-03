@@ -1,7 +1,7 @@
 import { Component, computed, inject } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
-import { LanguageStore, SupportedLanguage } from '../../../store/language.store';
-import { ProjectStore } from '../../../store/project.store';
+import { LanguageStore, SupportedLanguage } from '../../../store/language/language.store';
+import { ProjectStore } from '../../../store/project/project.store';
 import { ProjectsService } from '../../../services/projects/projects.service';
 import { Project } from '../../../model/project.model';
 

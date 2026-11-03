@@ -10,11 +10,11 @@ import {
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { tapResponse } from '@ngrx/operators';
 import { forkJoin, pipe, switchMap, tap } from 'rxjs';
-import { DataService } from '../services/data/data.service';
-import { AboutMe } from '../model/about-me.model';
-import { Experience } from '../model/experience.model';
-import { Education } from '../model/education.model';
-import { SkillCategory } from '../model/skill.model';
+import { DataService } from '../../services/data/data.service';
+import { AboutMe } from '../../model/about-me.model';
+import { Experience } from '../../model/experience.model';
+import { Education } from '../../model/education.model';
+import { SkillCategory } from '../../model/skill.model';
 
 interface PortfolioState {
   aboutMe: AboutMe[];

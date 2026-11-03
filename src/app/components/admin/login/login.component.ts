@@ -1,7 +1,7 @@
 import { Component, effect, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthStore } from '../../../store/auth.store';
+import { AuthStore } from '../../../store/auth/auth.store';
 
 @Component({
   selector: 'app-admin-login',
