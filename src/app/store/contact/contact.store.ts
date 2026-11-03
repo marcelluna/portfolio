@@ -46,11 +46,13 @@ export const ContactStore = signalStore(
 
           return contactService.sendMail(request).pipe(
             tapResponse({
-              next: () => {
+              next: (response) => {
+                console.log('[ContactStore] Success:', response);
                 patchState(store, { status: 'success' });
               },
 
-              error: () => {
+              error: (error) => {
+                console.log('[ContactStore] Error:', error);
                 patchState(store, { status: 'error' });
               },
             })

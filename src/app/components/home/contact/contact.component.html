@@ -29,9 +29,9 @@
           <button type="submit" [disabled]="sendEmailForm.invalid || contactStore.isLoading()"
                   class="main-btn" data-aos="fade-up" data-aos-duration="1000">
             @if (loading) {
-              {{ 'contact.btn' | translate }}
-            } @else {
               {{ 'label.sending' | translate }}
+            } @else {
+              {{ 'contact.btn' | translate }}
             }
           </button>
 
