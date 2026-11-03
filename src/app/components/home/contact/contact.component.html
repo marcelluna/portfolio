@@ -1,3 +1,6 @@
+@let loading = contactStore.isLoading();
+@let sent = contactStore.isMessageSent();
+@let fail = contactStore.isMessageFailed();
 <section class="section" id="contact">
   <div class="container contact">
     <div class="section-box">
@@ -25,20 +28,20 @@
 
           <button type="submit" [disabled]="sendEmailForm.invalid || contactStore.isLoading()"
                   class="main-btn" data-aos="fade-up" data-aos-duration="1000">
-            @if (contactStore.isLoading()) {
+            @if (loading) {
               {{ 'contact.btn' | translate }}
             } @else {
               {{ 'label.sending' | translate }}
             }
           </button>
 
-          @if (contactStore.isMessageSent()) {
+          @if (sent) {
             <div class="alert alert-success">
               {{ 'label.send-success' | translate }}
             </div>
           }
 
-          @if (contactStore.isMessageFailed()) {
+          @if (fail) {
             <div class="alert alert-danger">
               {{ 'label.send-fail' | translate }}
             </div>
