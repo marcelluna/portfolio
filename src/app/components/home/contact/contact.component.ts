@@ -1,7 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TranslatePipe } from '@ngx-translate/core';
-import { ApiService } from '../../../services/api.service';
+import { ContactStore } from '../../../store/contact/contact.store';
 
 @Component({
   selector: 'app-contact',
@@ -9,12 +9,10 @@ import { ApiService } from '../../../services/api.service';
   styleUrls: ['./contact.component.scss'],
   imports: [ReactiveFormsModule, TranslatePipe],
 })
-export class ContactComponent {
-  private readonly apiService = inject(ApiService);
-  private readonly formBuilder = inject(FormBuilder);
+export class ContactComponent implements OnInit {
 
-  isMessageSent = false;
-  isMessageFailed = false;
+  readonly contactStore = inject(ContactStore);
+  private readonly formBuilder = inject(FormBuilder);
 
   readonly sendEmailForm: FormGroup = this.formBuilder.group({
     name: ['', Validators.required],
@@ -22,13 +20,19 @@ export class ContactComponent {
     message: ['', Validators.required],
   });
 
+  ngOnInit(): void {
+    this.contactStore.reset();
+  }
+
   sendEmail(): void {
-    this.isMessageSent = false;
-    this.isMessageFailed = false;
+
+    if (this.sendEmailForm.invalid || this.contactStore.isLoading()) {
+      this.sendEmailForm.markAllAsTouched();
+      return;
+    }
+
     const { name, email, message } = this.sendEmailForm.value;
-    this.apiService.sendMail(name, email, message).subscribe({
-      next: () => (this.isMessageSent = true),
-      error: () => (this.isMessageFailed = true),
-    });
+
+    this.contactStore.sendEmail({ name, email, message });
   }
 }

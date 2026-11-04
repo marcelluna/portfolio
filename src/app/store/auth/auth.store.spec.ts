@@ -1,8 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideHttpClient } from '@angular/common/http';
+import { beforeEach, describe, expect, it, afterEach } from 'vitest';
 import { AuthStore } from './auth.store';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 
 describe('AuthStore', () => {
   let httpMock: HttpTestingController;

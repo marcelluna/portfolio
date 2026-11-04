@@ -3,7 +3,7 @@ import { Router, RouterLink } from '@angular/router';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
-import { LanguageStore, SupportedLanguage } from '../../../store/language.store';
+import { LanguageStore, SupportedLanguage } from '../../../store/language/language.store';
 
 @Component({
   selector: 'app-header',

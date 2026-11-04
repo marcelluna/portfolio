@@ -6,7 +6,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import * as AOS from 'aos';
 import { HeaderComponent } from './components/general/header/header.component';
 import { FooterComponent } from './components/general/footer/footer.component';
-import { LanguageStore } from './store/language.store';
+import { LanguageStore } from './store/language/language.store';
 
 @Component({
   selector: 'app-root',

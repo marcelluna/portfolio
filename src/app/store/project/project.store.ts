@@ -11,8 +11,8 @@ import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { tapResponse } from '@ngrx/operators';
 import { pipe, switchMap, tap } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
-import { ProjectsService } from '../services/projects/projects.service';
-import { Project } from '../model/project.model';
+import { ProjectsService } from '../../services/projects/projects.service';
+import { Project } from '../../model/project.model';
 
 interface ProjectState {
   projects: Project[];
