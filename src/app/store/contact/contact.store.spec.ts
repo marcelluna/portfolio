@@ -1,9 +1,10 @@
 import { TestBed } from '@angular/core/testing';
-import { Subject, of, throwError } from 'rxjs';
+import { of, Subject, throwError } from 'rxjs';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { ContactStore, ContactRequest } from './contact.store';
+import { ContactStore } from './contact.store';
 import { ContactService } from '../../services/contact/contact.service';
+import { ContactRequest } from '../../model/contact-request.model';
 
 describe('ContactStore', () => {
   let store: InstanceType<typeof ContactStore>;

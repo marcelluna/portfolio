@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ExperienceComponent } from './experience.component';
 import { commonTestProviders } from '../../../../testing/test-providers';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 describe('ExperienceComponent', () => {
   let component: ExperienceComponent;

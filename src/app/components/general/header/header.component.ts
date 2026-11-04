@@ -1,7 +1,6 @@
 import { Component, HostListener, inject, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDropdownModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { LanguageStore, SupportedLanguage } from '../../../store/language/language.store';
 
@@ -19,6 +18,17 @@ export class HeaderComponent {
   responsiveMenuVisible = false;
   readonly pageYPosition = signal(0);
   cvName = 'Marcel_Luna_DIGIT-TM_II-CV_012025.pdf';
+
+
+  readonly menuItems = [
+    { id: 'about', label: 'header.item1' },
+    { id: 'education', label: 'header.item2' },
+    { id: 'experience', label: 'header.item3' },
+    { id: 'proficiency', label: 'header.item4' },
+    { id: 'projects', label: 'header.item6' },
+    { id: 'contact', label: 'header.item5' }
+  ];
+
 
   scroll(el: string): void {
     const element = document.getElementById(el);

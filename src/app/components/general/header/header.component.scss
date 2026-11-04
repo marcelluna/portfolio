@@ -229,6 +229,11 @@
     font-family: variables.$CodeFont;
 }
 
+.flag {
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
 .language-container {
     padding-left: 16px;
     padding-right: 16px;

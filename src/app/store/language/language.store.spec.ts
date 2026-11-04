@@ -3,6 +3,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideTranslateService } from '@ngx-translate/core';
 import { LanguageStore } from './language.store';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 describe('LanguageStore', () => {
   beforeEach(() => {

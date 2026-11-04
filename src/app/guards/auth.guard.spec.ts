@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
-import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { provideRouter } from '@angular/router';
+import { ActivatedRouteSnapshot, provideRouter, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { authGuard } from './auth.guard';
+import { beforeEach, describe, expect, it, afterEach } from 'vitest';
 
 const route = {} as ActivatedRouteSnapshot;
 const state = {} as RouterStateSnapshot;

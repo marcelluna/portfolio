@@ -12,4 +12,8 @@ export class AboutComponent {
   private readonly portfolioStore = inject(PortfolioStore);
 
   readonly descriptions = this.portfolioStore.aboutMe;
+  readonly translationParams = {
+    years: new Date().getFullYear() - 2006
+  };
+
 }

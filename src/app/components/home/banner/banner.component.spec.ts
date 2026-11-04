@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BannerComponent } from './banner.component';
 import { commonTestProviders } from '../../../../testing/test-providers';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 describe('BannerComponent', () => {
   let component: BannerComponent;

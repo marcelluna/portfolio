@@ -6,6 +6,7 @@ import { provideTranslateService } from '@ngx-translate/core';
 import { ProjectsComponent } from './projects.component';
 import { environment } from '../../../../environments/environment';
 import { Project } from '../../../model/project.model';
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 
 const projects: Project[] = [
   {
