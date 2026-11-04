@@ -6,6 +6,7 @@
     "start": "ng serve",
     "start-proxy": "ng serve --configuration=proxy",
     "build": "ng build",
+    "prebuild-portfolio": "npm run lint && npm run test -- --watch=false",
     "build-portfolio": "ng build --configuration production",
     "test": "ng test",
     "lint": "ng lint"
@@ -34,16 +35,18 @@
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
+    "@angular-eslint/builder": "20.7.0",
     "@angular/build": "^22.2.0",
     "@angular/cli": "^22.2.0",
     "@angular/compiler-cli": "^22.2.0",
+    "@eslint/js": "^9.39.1",
     "@types/aos": "^3.0.7",
     "@types/node": "^22.13.10",
-    "angular-eslint": "^20.0.0",
-    "eslint": "^9.0.0",
+    "angular-eslint": "20.7.0",
+    "eslint": "^9.39.1",
     "jsdom": "^26.0.0",
     "typescript": "~6.0.0",
-    "typescript-eslint": "^8.0.0",
-    "vitest": "^3.0.0"
+    "typescript-eslint": "8.46.4",
+    "vitest": "5.0.5"
   }
 }

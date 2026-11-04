@@ -9,7 +9,7 @@
   "header.cv-name": "CV_Marcel_Morais_Luna.pdf",
 
   "banner.pre-title": "Hello! My name is",
-  "banner.description": "I have more then <span class='underline'>13 years of experience</span> in IT with a Bachelor's Degree in Computer Science and specialization in software engineer but I'm self-taught and like to apply new technologies when they are mature enough and it's the best fit for the project.",
+  "banner.description": "I have more then <span class='underline'>{{ years }} years of experience</span> in IT with a Bachelor's Degree in Computer Science and specialization in software engineer but I'm self-taught and like to apply new technologies when they are mature enough and it's the best fit for the project.",
   "banner.action-btn": "Send me a Hi!",
 
   "about-me.title": "About Me",

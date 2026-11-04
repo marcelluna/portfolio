@@ -3,6 +3,7 @@ import { HttpTestingController } from '@angular/common/http/testing';
 import { HomeComponent } from './home.component';
 import { commonTestProviders } from '../../../testing/test-providers';
 import { environment } from '../../../environments/environment';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;

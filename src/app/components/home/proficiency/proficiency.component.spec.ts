@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProficiencyComponent } from './proficiency.component';
 import { commonTestProviders } from '../../../../testing/test-providers';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 describe('ProficiencyComponent', () => {
   let component: ProficiencyComponent;

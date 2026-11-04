@@ -8,7 +8,7 @@
   "header.cv-btn": "Curr\u00edculo",
   "header.cv-name": "CV_Marcel_Morais_Luna.pdf",
   "banner.pre-title": "Ol\u00e1! Meu nome \u00e9",
-  "banner.description": "Tenho mais de <span class='underline'>13 anos de experi\u00eancia</span> em TI com Bacharelado em Ci\u00eancia da Computa\u00e7\u00e3o e especializa\u00e7\u00e3o em engenharia de software, mas sou autodidata e gosto de aplicar novas tecnologias quando est\u00e3o maduras o suficiente e s\u00e3o a melhor op\u00e7\u00e3o para o projeto.",
+  "banner.description": "Tenho mais de <span class='underline'>{{ years }} anos de experi\u00eancia</span> em TI com Bacharelado em Ci\u00eancia da Computa\u00e7\u00e3o e especializa\u00e7\u00e3o em engenharia de software, mas sou autodidata e gosto de aplicar novas tecnologias quando est\u00e3o maduras o suficiente e s\u00e3o a melhor op\u00e7\u00e3o para o projeto.",
   "banner.action-btn": "Me envie um Oi!",
   "about-me.title": "Sobre mim",
   "about-me.description-01": "Eu me descrevo como um desenvolvedor que ama codifica\u00e7\u00e3o, c\u00f3digo aberto e a plataforma web. Atualmente estou trabalhando na <span class='underline'>Comiss\u00e3o Europeia</span> como Consultor de TI com o papel de <span class='underline'>Arquiteto de Aplica\u00e7\u00f5es/Nuvem</span> e fundador da <span class='underline'>M2L Solutions</span>, minha pr\u00f3pria empresa de TI",
