@@ -1,7 +1,8 @@
-<nav animate.enter="menu-enter" class="navbar main-navbar on-top" [class.nav-shadow]='pageYPosition() > 0'>
+<nav animate.enter="menu-enter" class="navbar main-navbar on-top" [class.nav-shadow]='pageYPosition() > 0'
+  aria-label="main menu">
     <div class="container">
         <a class="navbar-brand text-light" [routerLink]="'index'">
-            <img src='assets/images/ml-logo.png' width='25' />
+            <img src='assets/images/ml-logo.png' width='25' alt="Marcel Luna logo"/>
         </a>
         <ul ngbNav #nav="ngbNav" class="menu-ul">
           @for (item of menuItems; track item.id; let index = $index) {
@@ -55,7 +56,7 @@
         </div>
         <div class="menu-responsive" [style.pointer-events]="responsiveMenuVisible ? null : 'none'">
             <aside [class.aside-show]='responsiveMenuVisible' [class.nav-shadow]='pageYPosition() > 0' class="on-top">
-                <nav>
+                <nav aria-label="navigation menu">
                     <ol>
                       @for (item of menuItems; track item.id; let index = $index) {
                         <li>
